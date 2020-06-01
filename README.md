@@ -162,23 +162,23 @@ do {
     
 #### WKUIDelegate
    
-    WKUIDelegate 的作用是管理網頁常見的 javascript function：alert、confirm、prompt以及右鍵選單。
+WKUIDelegate 的作用是管理網頁常見的 javascript function：alert、confirm、prompt以及右鍵選單。
 
-    範例在 [InteractionViewController.swift](TIWebContentDisplayer/InteractionViewController.swift)
+範例在 [InteractionViewController.swift](TIWebContentDisplayer/InteractionViewController.swift)
 
     
-    ![WKUIDelegate](readmeImages/3WKUIDelegate.png)
+![WKUIDelegate](readmeImages/3WKUIDelegate.png)
 
-    在使用時，請注意在 confirm 與 prompt 的互動中。completionHandler 是要有傳回值。
-    confirm 是回傳 true/false 而 prompt 是要回傳字串。
+在使用時，請注意在 confirm 與 prompt 的互動中。completionHandler 是要有傳回值。
+confirm 是回傳 true/false 而 prompt 是要回傳字串。
 
-    例如在 prompt 範例中，我是使用 UIAlertController 內的 UITextField 取值。
-    可以直接傳回字串值，觀察網頁的執行狀況。
+例如在 prompt 範例中，我是使用 UIAlertController 內的 UITextField 取值。
+可以直接傳回字串值，觀察網頁的執行狀況。
 
-    ```swift
-    completionHandler( "這會是回傳給網頁端的訊息" )
-    ```
-    ![completionHandler](readmeImages/4completionHandler.png)
+```swift
+  completionHandler( "這會是回傳給網頁端的訊息" )
+ ```
+![completionHandler](readmeImages/4completionHandler.png)
 
 #### 與 javascript 進行互動
    
@@ -279,7 +279,7 @@ do {
     因為在 Storyboard 關聯的物件會先於其他程式碼呼叫。可是 configuration 卻是較晚時間設定。
     所以我先設定 webViewContainer 做為容器，定位 WKWebView 的 Layout
 
-## 前言
+## 結語
 
     以上是我使用 WKWebView 的心得。
     2020.6.1
