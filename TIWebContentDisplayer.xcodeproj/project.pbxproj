@@ -29,6 +29,7 @@
 		8B1FDD2E2483C4D6008AF011 /* SFProIcons_semibold.woff in Resources */ = {isa = PBXBuildFile; fileRef = 8B1FDD102483C4D6008AF011 /* SFProIcons_semibold.woff */; };
 		8B1FDD2F2483C4D6008AF011 /* SFProIcons_regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = 8B1FDD112483C4D6008AF011 /* SFProIcons_regular.woff */; };
 		8B1FDD342483C4D6008AF011 /* global.dist.css in Resources */ = {isa = PBXBuildFile; fileRef = 8B1FDD182483C4D6008AF011 /* global.dist.css */; };
+		8B41961B2484C729008EF6FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8B41961A2484C729008EF6FD /* README.md */; };
 		8BA817DB2482A29E0039C311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA817DA2482A29E0039C311 /* AppDelegate.swift */; };
 		8BA817DD2482A29E0039C311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA817DC2482A29E0039C311 /* SceneDelegate.swift */; };
 		8BA817DF2482A29E0039C311 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA817DE2482A29E0039C311 /* ViewController.swift */; };
@@ -66,6 +67,7 @@
 		8B1FDD102483C4D6008AF011 /* SFProIcons_semibold.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFProIcons_semibold.woff; sourceTree = "<group>"; };
 		8B1FDD112483C4D6008AF011 /* SFProIcons_regular.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFProIcons_regular.woff; sourceTree = "<group>"; };
 		8B1FDD182483C4D6008AF011 /* global.dist.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = global.dist.css; sourceTree = "<group>"; };
+		8B41961A2484C729008EF6FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8BA817D72482A29E0039C311 /* TIWebContentDisplayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TIWebContentDisplayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA817DA2482A29E0039C311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BA817DC2482A29E0039C311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		8BA817CE2482A29D0039C311 = {
 			isa = PBXGroup;
 			children = (
+				8B41961A2484C729008EF6FD /* README.md */,
 				8BA817D92482A29E0039C311 /* TIWebContentDisplayer */,
 				8BA817D82482A29E0039C311 /* Products */,
 				8BA817EE2482B2660039C311 /* Frameworks */,
@@ -303,6 +306,7 @@
 				8B1FDD2B2483C4D6008AF011 /* sf-pro-text_semibold.woff2 in Resources */,
 				8B1FDD2C2483C4D6008AF011 /* SFProIcons_medium.woff in Resources */,
 				8B1FDD232483C4D6008AF011 /* sf-pro-text_light.woff2 in Resources */,
+				8B41961B2484C729008EF6FD /* README.md in Resources */,
 				8B1FDD212483C4D6008AF011 /* sf-pro-display_light.woff2 in Resources */,
 				8B1FDD292483C4D6008AF011 /* sf-pro-text_thin.woff2 in Resources */,
 				8B1FDD2F2483C4D6008AF011 /* SFProIcons_regular.woff in Resources */,

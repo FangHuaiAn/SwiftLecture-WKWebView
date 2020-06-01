@@ -29,7 +29,7 @@ class InteractionViewController: UIViewController {
 
                     <button type='button' onclick='showConfirm()' text='Hi' style='width: 100%; height: 30px ;margin-top:10px'>Yes or No</button><br />
 
-                    <button onclick='query()' style='width: 100%; height: 30px ;margin-top:10px' >Prompt</button><br />
+                    <button onclick='showPrompt()' style='width: 100%; height: 30px ;margin-top:10px' >Prompt</button><br />
                     
                     <button type='button' onclick='callNativeApp()' text='Send Message To Native App' style='width: 100%; height: 30px ;margin-top:10px'>Send Message To Native App</button>
                     <p id='demo'></p>
@@ -48,7 +48,7 @@ class InteractionViewController: UIViewController {
                             }
                         }
 
-                        function query() {
+                        function showPrompt() {
                             var lang = prompt('你現在用什麼程式語言', 'Swift or Kotlin');
                             if (lang != null) {
                                 document.getElementById('demo').innerHTML = '我也是用' + lang;
@@ -69,26 +69,10 @@ class InteractionViewController: UIViewController {
         </html>
         """
         
-        // 設定
-        let configration = WKWebViewConfiguration()
         
-        //
+        
+        // 與 javascript 互動
         let contentController = WKUserContentController()
-        configration.userContentController = contentController
-        // 控制偏好，注意還是有許多設定時直接放在 WKWebViewConfiguration 下。
-        let preferences = WKPreferences()
-        
-        preferences.javaScriptEnabled = true
-        configration.preferences = preferences
-        
-        // 多媒體控制
-        //configration.allowsInlineMediaPlayback = true
-        //configration.allowsAirPlayForMediaPlayback = true
-        //configration.allowsPictureInPictureMediaPlayback = true
-        
-        // User Agent
-        //configration.applicationNameForUserAgent = ""
-        
         // 調整網頁大小，適應移動裝置。
         // <meta name="viewport" content="width=device-width, initial-scale=1" />
         
@@ -104,16 +88,28 @@ class InteractionViewController: UIViewController {
         injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
         forMainFrameOnly: true)
         
-        //
-        
         contentController.addUserScript(userScript)
         contentController.add(self, name: "NOTE_HERE") // 注意這裡要與 javascript 內的呼叫配合
         
-        //
+        // 控制偏好，注意還是有許多設定時直接放在 WKWebViewConfiguration 下。
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+
+        // 設定
+        let configration = WKWebViewConfiguration()
+        configration.userContentController = contentController
+        configration.preferences = preferences
         
+        // 多媒體控制
+        //configration.allowsInlineMediaPlayback = true
+        //configration.allowsAirPlayForMediaPlayback = true
+        //configration.allowsPictureInPictureMediaPlayback = true
+
+        // User Agent
+        //configration.applicationNameForUserAgent = ""
         
         //
-        self.myWebView = WKWebView(frame: view.bounds, configuration: configration)
+        self.myWebView = WKWebView(frame: self.webViewContainer.bounds, configuration: configration)
         
         self.myWebView.uiDelegate = self
         self.myWebView.navigationDelegate = self
@@ -163,7 +159,7 @@ extension InteractionViewController : WKNavigationDelegate {
                 print("回傳訊息:\( returnMessage )")
                 
             }else{
-                print("error:\( String(describing: error )   )")
+                print( error?.localizedDescription ?? "error happened")
             }
             
         })
