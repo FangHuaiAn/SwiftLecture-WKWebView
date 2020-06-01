@@ -102,63 +102,63 @@ do {
 
 #### WKNavigationDelegate
 
-    這是用來管理 WKWebView 的網誌跳轉事件。
-    比較重要的是「網頁開始載入」與「網頁載入完畢」。
+這是用來管理 WKWebView 的網誌跳轉事件。
+比較重要的是「網頁開始載入」與「網頁載入完畢」。
 
-    - 網頁開始載入
-    didCommit
-    - 網頁載入完畢
-    didFinish
+- 網頁開始載入
+didCommit
+- 網頁載入完畢
+didFinish
 
-    ```swift
-    extension LoadURLViewController : WKNavigationDelegate {
-    
-        // when content starts arriving for the main frame.
-        func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-            print("didCommit")
-        }
-    
-        // when a main frame navigation completes.
-        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            print("didFinish")
-        }
+```swift
+extension LoadURLViewController : WKNavigationDelegate {
+
+    // when content starts arriving for the main frame.
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        print("didCommit")
     }
-    ```
 
-    在範例 [LoadURLViewController.swift](TIWebContentDisplayer/LoadURLViewController.swift) 中，我使用網頁內容較複雜的 Apple 開發者網站。顯示這兩個事件的時間差。
+    // when a main frame navigation completes.
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("didFinish")
+    }
+}
+```
 
-    ```swift
-    self.myWebView.navigationDelegate = self
-    self.myWebView.load(URLRequest(url: URL(string: "https://developer.apple.com")!))
-    ```
+在範例 [LoadURLViewController.swift](TIWebContentDisplayer/LoadURLViewController.swift) 中，我使用網頁內容較複雜的 Apple 開發者網站。顯示這兩個事件的時間差。
 
-    注意，別忘記設定 navigationDelegate。
+```swift
+self.myWebView.navigationDelegate = self
+self.myWebView.load(URLRequest(url: URL(string: "https://developer.apple.com")!))
+```
+
+注意，別忘記設定 navigationDelegate。
 
 
 #### SFSafariViewControllerDelegate
 
-    一樣需要設定 delegate
-    ```swift
-        let safari = SFSafariViewController( url: URL(string: "https://google.com")!)
-        safari.delegate = self
-        self.present(safari, animated: true, completion: nil)
-    ```
-    SFSafariViewController 只負責載入網頁，所以 delegate 的設計較為簡單。
-    以開始載入與結束載入較為常用。 
+一樣需要設定 delegate
+```swift
+    let safari = SFSafariViewController( url: URL(string: "https://google.com")!)
+    safari.delegate = self
+    self.present(safari, animated: true, completion: nil)
+```
+SFSafariViewController 只負責載入網頁，所以 delegate 的設計較為簡單。
+以開始載入與結束載入較為常用。 
 
-    ```swift
-    extension ViewController : SFSafariViewControllerDelegate {
-    
-        func safariViewController(_ controller: SFSafariViewController, initialLoadDidRedirectTo URL: URL) {
-            print("initialLoadDidRedirectTo:\( URL.absoluteString )")
-        }
-    
-        func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool) {
-            print("didCompleteInitialLoad")
-        }
+```swift
+extension ViewController : SFSafariViewControllerDelegate {
+
+    func safariViewController(_ controller: SFSafariViewController, initialLoadDidRedirectTo URL: URL) {
+        print("initialLoadDidRedirectTo:\( URL.absoluteString )")
     }
-    ```
-    範例在 [ViewControll.swift](TIWebContentDisplayer/ViewController.swift)
+
+    func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool) {
+        print("didCompleteInitialLoad")
+    }
+}
+```
+範例在 [ViewControll.swift](TIWebContentDisplayer/ViewController.swift)
     
 #### WKUIDelegate
    
